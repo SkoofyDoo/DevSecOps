@@ -1,4 +1,22 @@
-"scripts": {
-  "lint": "echo \"lint placeholder\"",
-  "test": "echo \"test placeholder\""
+{
+    "name": "devsecops",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "lint": "echo \"lint placeholder\"",
+        "test": "echo \"tests placeholder\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SkoofyDoo/DevSecOps.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/SkoofyDoo/DevSecOps/issues"
+    },
+    "homepage": "https://github.com/SkoofyDoo/DevSecOps#readme"
 }
