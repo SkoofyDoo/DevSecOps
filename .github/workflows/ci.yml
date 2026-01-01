@@ -44,6 +44,18 @@ jobs:
               # npm ci statt npm install für saubere Installation
               run: npm ci
 
+            # Sicherheitsprüfungen der Abhängigkeiten
+            - name: Dependencies vulnerability check
+              # --audit-level=high um nur hohe und kritische Probleme zu melden
+              run: npm audit --audit-level=high
+
+            # Statische Code-Analyse mit Semgrep
+            - name: SAST (Semgrep)
+              uses: returntocorp/semgrep-action@v1
+              with:
+                  # Verwendet die vordefinierte CI-Konfiguration
+                  config: p/ci
+
             # Führt Linting und Tests aus
             - name: Run lint
               run: npm run lint

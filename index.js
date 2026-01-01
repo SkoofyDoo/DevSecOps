@@ -1,3 +1,6 @@
+const express = require('express');
+const app = express();
+
 app.get('/health', (req, res) => {
     if (!res) {
         res.status(500).send('Unhealthy');
@@ -6,4 +9,8 @@ app.get('/health', (req, res) => {
     }
 });
 
+function add(a, b) {
+    return a + b;
+}
 
+module.exports = { app, add };

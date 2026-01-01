@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "lint": "echo \"lint placeholder\"",
-        "test": "echo \"tests placeholder\""
+        "lint": "eslint .",
+        "test": "jest"
     },
     "repository": {
         "type": "git",
@@ -18,5 +18,13 @@
     "bugs": {
         "url": "https://github.com/SkoofyDoo/DevSecOps/issues"
     },
-    "homepage": "https://github.com/SkoofyDoo/DevSecOps#readme"
+    "homepage": "https://github.com/SkoofyDoo/DevSecOps#readme",
+    "devDependencies": {
+        "eslint": "^9.39.2",
+        "jest": "^30.2.0",
+        "supertest": "^7.1.4"
+    },
+    "dependencies": {
+        "express": "^5.2.1"
+    }
 }
