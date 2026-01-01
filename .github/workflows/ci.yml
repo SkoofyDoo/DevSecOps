@@ -69,6 +69,6 @@ jobs:
             - name: Scan Docker Image with Trivy
               uses: aquasecurity/trivy-action@0.24.0
               with:
-                  image-ref: devsecops-demo:local
+                  image-ref: devsecops-demo:ci
                   exit-code: '1'
                   severity: 'CRITICAL,HIGH'
