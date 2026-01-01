@@ -1,26 +1,52 @@
+# Workflow-Name for Continuous Integration
 name: CI Pipeline
 
-on: 
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+# Trigger bei Push oder Pull-Request auf den main-Branch
+on:
+    push:
+        branches: ['main']
+    pull_request:
+        branches: ['main']
 
+# Workflow besteht aus Jobs
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    # Namen des Jobs
+    build:
+        # Läuft auf einem Ubuntu-Latest-Image
+        runs-on: ubuntu-latest
+        # Job besteht aus mehreren Schritten
+        steps:
+            # Nutzt den Checkout-Action, um den Code zu holen
+            - name: Checkout repository
+              uses: actions/checkout@v4
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+            # Debugging
+            - name: Show files (debug)
+              # run in Shell
+              run: |
+                  pwd
+                  ls -la
+                  echo "----"
+                  ls -la .github || true
+                  echo "----"
+                  cat package.json || true
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
+            # Setzt Node.js Umgebung auf
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '18'
+                  cache: 'npm'
 
-    - name: Install dependencies
-      run: npm install
+            # Installiert Abhängigkeiten
+            - name: Install dependencies
+              # Braucht package-lock.json für npm ci (Kein package-lock.json kein npm ci)
+              # npm ci statt npm install für saubere Installation
+              run: npm ci
 
-    - name: Run tests
-      run: npm test
+            # Führt Linting und Tests aus
+            - name: Run lint
+              run: npm run lint
+
+            - name: Run tests
+              run: npm test
