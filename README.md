@@ -10,7 +10,7 @@
 
   <img src="https://img.shields.io/github/last-commit/SkoofyDoo/DevSecOps?color=green&label=Update" alt="Last commit" />
 </p>
-
+</div>
 
 ---
 
